@@ -1,0 +1,7 @@
+POST https://api.github.com/repos/MarcusQuirino/stattrack/git/trees
+Authorization: token sla
+
+{
+  "base_tree": "7bd113af7dfe4a2259808ab3a627630fa7461b84",
+  "tree": [{"path": "stats.csv", "mode": "100644", "type": "blob", "content": "2,3,5\n"}]
+}

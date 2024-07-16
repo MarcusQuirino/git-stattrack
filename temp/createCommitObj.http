@@ -1,0 +1,8 @@
+POST https://api.github.com/repos/MarcusQuirino/stattrack/git/commits
+Authorization: token sla
+
+{
+  "message": "14-07-2024", 
+  "tree": "f821b94d18fff6d8bbc1b4986aece4dc4203bae2", 
+  "parents": ["82df73f82d88578a65547c44f6993174ee701538"]
+}

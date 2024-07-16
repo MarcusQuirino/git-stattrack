@@ -1,0 +1,7 @@
+POST https://api.github.com/repos/MarcusQuirino/stattrack/git/refs
+Authorization: token sla
+
+{
+  "sha": "8f0a70c7d717e21e211ccf8f5bd5055f57c102b7",
+  "ref": "refs/heads/stats1"
+}
