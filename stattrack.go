@@ -42,29 +42,17 @@ func main() {
 
 	// Check if a command-line argument is passed
 	if len(os.Args) > 1 {
-		// List all commit stats from the database
-		rows, err := database.Query("SELECT id, files_changed, insertions, deletions FROM git_stats")
-		if err != nil {
-			log.Fatal(err)
+		switch os.Args[1] {
+		case "show":
+			showCommits(database)
+			return
+		case "push":
+			fmt.Println("ToDo")
+			return
+		default:
+			fmt.Println("Invalid command")
+			return
 		}
-		defer rows.Close()
-
-		fmt.Println("Commit Stats:")
-		for rows.Next() {
-			var id int
-			var filesChanged, insertions, deletions string
-			err := rows.Scan(&id, &filesChanged, &insertions, &deletions)
-			if err != nil {
-				log.Fatal(err)
-			}
-			fmt.Printf("ID: %d, Files Changed: %s, Insertions: %s, Deletions: %s\n", id, filesChanged, insertions, deletions)
-		}
-		err = rows.Err()
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		return
 	}
 
 	// Run the git commit command
@@ -125,4 +113,27 @@ func main() {
 	}
 
 	fmt.Println("Data successfully inserted into the database")
+}
+
+func showCommits(database *sql.DB) {
+	rows, err := database.Query("SELECT id, files_changed, insertions, deletions FROM git_stats")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	fmt.Println("Commit Stats:")
+	for rows.Next() {
+		var id int
+		var filesChanged, insertions, deletions string
+		err := rows.Scan(&id, &filesChanged, &insertions, &deletions)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("ID: %d, Files Changed: %s, Insertions: %s, Deletions: %s\n", id, filesChanged, insertions, deletions)
+	}
+	err = rows.Err()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
