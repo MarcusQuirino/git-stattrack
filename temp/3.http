@@ -1,0 +1,12 @@
+POST https://api.github.com/repos/MarcusQuirino/stattrack/git/commits
+Authorization: token sla
+
+{
+  "message": "sla", 
+  "tree": "7bd113af7dfe4a2259808ab3a627630fa7461b84", 
+  "parents": ["82df73f82d88578a65547c44f6993174ee701538"],
+  "author": {
+    "name": "MarcusQuirino",
+    "email": "marcusfilipus@gmail.com"
+  }
+}

@@ -1,2 +1,0 @@
-GET https://api.github.com/repos/MarcusQuirino/stattrack/branches/main
-Authorization: token sla
